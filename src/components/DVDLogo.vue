@@ -1,6 +1,5 @@
 <template>
   <div
-    :id="showStatic ? 'static' : ''"
     class="absolute w-[350px] h-[310px]"
     :style="{ 'background-color': tvBackground }"
   />
@@ -16,7 +15,6 @@
     }"
   >
     <div
-      v-if="!showStatic"
       ref="screenRef"
       class="absolute inset-2 bg-transparent overflow-hidden"
     >
@@ -57,7 +55,6 @@ export default defineComponent({
     const logoFillColor = ref("#42a5f5"); // Initial fill color
     const logoPosition = ref({ x: 50, y: 50 });
     const logoSize = 100; // Logo size in pixels
-    const showStatic = ref(true);
     const screenRef = ref<HTMLDivElement | null>(null);
     const speed = ref(0.5);
     const tvBackground = ref("#000");
@@ -136,11 +133,7 @@ export default defineComponent({
         logoPosition.value.y = (offsetHeight - logoSize) / 2;
       }
 
-      // Show dvd logo animation after 5 seconds
-      setTimeout(() => {
-        showStatic.value = false;
-        animationFrame.value = requestAnimationFrame(moveLogo);
-      }, 2000);
+      animationFrame.value = requestAnimationFrame(moveLogo);
     });
 
     onUnmounted(() => {
@@ -152,25 +145,8 @@ export default defineComponent({
       logoPosition,
       logoSize,
       screenRef,
-      showStatic,
       tvBackground,
     };
   },
 });
 </script>
-
-<style>
-#static {
-  background: repeating-radial-gradient(#000 0 0.0001%, #4b4b4b 0 0.0002%) 50% 0/2500px
-      2500px,
-    repeating-conic-gradient(#000 0 0.0001%, #4b4b4b 0 0.0002%) 60% 60%/2500px
-      2500px;
-  background-blend-mode: difference;
-  animation: b 0.2s infinite alternate;
-}
-@keyframes b {
-  100% {
-    background-position: 50% 0, 60% 50%;
-  }
-}
-</style>
