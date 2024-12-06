@@ -7,7 +7,7 @@
   <div
     class="relative"
     :style="{
-      backgroundImage: 'url(tv2.png)',
+      backgroundImage: 'url(assets/tv.png)',
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',

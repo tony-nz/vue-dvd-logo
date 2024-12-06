@@ -9,7 +9,11 @@
         >Created by tony-nz
         <span class="text-xs text-gray-300">(Tony Myers)</span></span
       >
-      <img src="/github.svg" alt="github" class="w-4 h-4 inline-block mr-2" />
+      <img
+        src="/assets/github.svg"
+        alt="github"
+        class="w-4 h-4 inline-block mr-2"
+      />
     </a>
   </div>
   <div
