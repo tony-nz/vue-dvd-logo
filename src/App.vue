@@ -17,7 +17,7 @@
     </a>
   </div>
   <div
-    class="relative w-full h-screen flex items-center justify-center bg-slate-900"
+    class="relative w-full h-screen flex items-center justify-center bg-[url('./background.jpg')] bg-no-repeat bg-[length:100%_100%]"
   >
     <DVDLogo />
   </div>
